@@ -684,6 +684,7 @@ p {
 .tight-width-whitespace {
     max-width: 600px;
     margin: auto auto auto auto;
+    font-size: large;
 }
 
 .h1 {
@@ -700,6 +701,17 @@ p {
     font-weight: 700;
 }
 
+.cta-heroP2{
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
+    width: auto;
+    font-weight: bold;
+    margin-left: 30%;
+    font-size: 20px;
+}
 .social {
     max-width: 400px;
     margin: auto auto auto auto;
@@ -776,7 +788,7 @@ h4 {
 }
 
 .tc-white {
-    color: #F3976C!important;
+    color: white!important;
 }
 
 .btn-atomic-tangerine {
@@ -1046,4 +1058,11 @@ img {
     width: 100%;
 }
 
+}
+.msgContact{
+    font-size: large;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30%;
+    font-weight: bolder;
 }
