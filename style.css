@@ -5,8 +5,6 @@ body {
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: Roboto sans-serif;
-    font-display: swap;
 }
 
 a,
