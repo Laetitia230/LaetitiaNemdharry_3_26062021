@@ -21,14 +21,18 @@
 	
 	mail($to,$email_subject,$email_body,$headers); // Post message
 	return true;	
-	// Remove query string from static resources
-function remove_cssjs_ver( $src ) 
-{
-if( strpos( $src, '?ver=' ) )
-$src = remove_query_arg( 'ver', $src );
-return $src;
-}
-
-add_filter( 'style_loader_src', 'remove_cssjs_ver', 10, 2 );
-add_filter( 'script_loader_src', 'remove_cssjs_ver', 10, 2 );		
+//* TN - Remove Query String from Static Resources
+function tn_remove_css_js_ver( $src ) {
+	if( strpos( $src, '?ver=' ) )
+	$src = remove_query_arg( 'ver', $src );
+	return $src;
+  }
+  
+  function tn_remove_css_js() {
+	if (!is_admin()) {
+	  add_filter( 'style_loader_src', 'tn_remove_css_js_ver', 10, 2 );
+	  add_filter( 'script_loader_src', 'tn_remove_css_js_ver', 10, 2 );
+	}
+  }
+  add_action('init', 'tn_remove_css_js');	
 ?>
