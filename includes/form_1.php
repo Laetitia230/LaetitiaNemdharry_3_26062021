@@ -21,18 +21,16 @@
 	
 	mail($to,$email_subject,$email_body,$headers); // Post message
 	return true;	
-//* TN - Remove Query String from Static Resources
-function tn_remove_css_js_ver( $src ) {
-	if( strpos( $src, '?ver=' ) )
-	$src = remove_query_arg( 'ver', $src );
-	return $src;
-  }
-  
-  function tn_remove_css_js() {
-	if (!is_admin()) {
-	  add_filter( 'style_loader_src', 'tn_remove_css_js_ver', 10, 2 );
-	  add_filter( 'script_loader_src', 'tn_remove_css_js_ver', 10, 2 );
-	}
-  }
-  add_action('init', 'tn_remove_css_js');	
+	function remove_query_strings() {
+		if(!is_admin()) {
+			add_filter('script_loader_src', 'remove_query_strings_split', 15);
+			add_filter('style_loader_src', 'remove_query_strings_split', 15);
+		}
+	 }
+	 
+	 function remove_query_strings_split($src){
+		$output = preg_split("/(&ver|\?ver)/", $src);
+		return $output[0];
+	 }
+	 add_action('init', 'remove_query_strings');		
 ?>
